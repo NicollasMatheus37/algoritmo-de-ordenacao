@@ -1,0 +1,29 @@
+.navbar {
+    background: #990d24;
+    box-shadow: 0px 0px 5px 5px black;
+    height: 150px;
+    margin-bottom: 50px;
+}
+
+.nav-title {
+    text-align: center;
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 10px;
+}
+
+.btn-clear {
+    background: white;
+    border: none;
+    cursor: pointer;
+}
+
+.fa {
+    vertical-align: text-bottom;
+}
+
+.method-div {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="container with-title">
+  <h2 class="title">Métodos de Busca</h2>
+  <div class="method-div" *ngFor="let method of searchMethods">
+    <button (click)="selector == method.selector ? selector = '' : selector = method.selector" (click)="getCodeOf(method.selector)" class="btn-clear col text-left"><i [className]="selector == method.selector ? 'fa fa-chevron-right' : 'fa fa-chevron-down'"></i> {{method.name}}</button>
+    <div class="container" *ngIf="selector == method.selector">
+      <pre>{{method.code}}</pre>
+    </div>
+  </div>
+</div>

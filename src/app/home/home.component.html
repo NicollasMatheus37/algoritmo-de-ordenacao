@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+  <section class="container with-title">
+    <h2 class="title">Métodos Simples</h2>
+    <div class="row">
+      <div class="col" *ngFor="let method of simpleMethods">
+        <button routerLink="/simple-method/{{method.url}}" class="btn col">{{method.name}}</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="container with-title">
+    <h2 class="title">Métodos Sofisticados</h2>
+    <div class="row">
+        <div class="" *ngFor="let method of sofisticatedMethods">
+          <button routerLink="/sofisticated-method/{{method.url}}" class="btn col">{{method.name}}</button>
+        </div>
+    </div>
+  </section>
+  
+  <section class="container with-title">
+      <h2 class="title">Métodos de Pesquisa</h2>
+      <div class="row">
+          <div class="col" *ngFor="let method of searchMethods">
+            <button routerLink="/search-method/{{method.url}}" class="btn col">{{method.name}}</button>
+          </div>
+      </div>
+    </section>
