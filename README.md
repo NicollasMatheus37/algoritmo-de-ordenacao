@@ -1,27 +1,45 @@
-# AlgoritmoDeOrdenacao
+# ALGORITMOS DE ORDENAÇÃO
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+# Instalação das Dependências do Projeto
 
-## Development server
+## VS Code
+Instalar `Visual Studio (https://code.visualstudio.com/download)`
+
+## git
+Instalar `Git (https://git-scm.com/downloads)`
+
+## npm E Node.js
+Instalar `NPM` e `Node.js (https://www.npmjs.com/get-npm)`
+
+## Angular Cli
+Instalar `Angular Cli (https://cli.angular.io/)`
+    `-npm install -g @angular/cli-`
+
+# Clonagem do Projeto
+
+open cmd/git bash
+
+`git clone https://github.com/NicollasMatheus37/algoritmo-de-ordenacao.git`
+
+# Comandos git Comumente Usados
+
+## git init
+O `git init` cria um repositório.
+## git clone
+O `git clone` configura um novo repositório já existente na sua máquina.
+## git pull
+O `git pull` puxa as modificações do repositório remoto para o seu repositório local.
+## git status
+O `git status` mostra as modificações feitas no projeto desde a última versão dele existente no repositório local. O `git status` mostra duas áreas:
+    -Diretório de Trabalho
+    -Índice
+## git add
+O `git add` adiciona arquivos desejados que estão no diretório de trabalho ao índice. O `git add .` ou `git add *` adiciona TODOS os arquivos do diretório de trabalho ao índice.
+## git commit
+O `git commit` grava o conteúdo do índice e coloca em no repositório local.
+## git push
+O `git push` sobe os commits gravados para o repositório remoto.
+
+# Rodando o Projeto
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
