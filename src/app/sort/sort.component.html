@@ -1,0 +1,40 @@
+<!-- <div class="container with-title">
+  <h2 class="title">Ordenação</h2>
+  <div class="form-group">
+    <label>Digite os números do array separados por vírgulas <small>(Somente números e vírgulas)</small>.</label>
+    <input type="text" class="form-control input" name="array" [value]="array">
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <div class="form-group">
+        <select class="form-control input" name="typeOfSort" placeholder="Escolha o tipo de Ordenação">
+          <option disabled><b>Escolha o tipo de Ordenação</b></option>
+          <option *ngFor="let method of methods" [value]="method.selector"><small>{{method.name}}</small></option>
+        </select>
+      </div>
+    </div>
+    <div class="col"> -->
+      <button class="btn" (click)="openModal()">Ordenar</button>
+    <!-- </div>
+  </div>
+</div> -->
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Ordenação</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div class="form-group">
+        <label for="">Digite os números do array separados por vírgulas <small>(Somente números e vírgulas)</small>.</label>
+        <input type="text" class="form-control input" name="array" [value]="array" (keypress)="getValue($event)">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn-success">Ordenar</button>
+  </div>
+</ng-template>

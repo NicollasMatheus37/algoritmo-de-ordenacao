@@ -55,14 +55,13 @@ combSort: `function combSort(array) {
   }
   return array;
 }`,
-mergeSort: `function merge_sort(left_part, right_part) {
+mergeSort: `function mergeSort(left_part, right_part) {
   let i = 0;
   let j = 0;
   let results = [];
 
   while (i < left_part.length || j < right_part.length) {
     if (i === left_part.length) {
-      // j is the only index left_part
       results.push(right_part[j]);
       j++;
     } 
@@ -76,45 +75,45 @@ mergeSort: `function merge_sort(left_part, right_part) {
   }
   return results;
 }`,
-heapSort: `function heap_root(input, i) {
+heapSort: `function heapRoot(array, i) {
   let left = 2 * i + 1;
   let right = 2 * i + 2;
   let max = i;
 
-  if (left < array_length && input[left] > input[max]) {
+  if (left < array.length && array[left] > array[max]) {
     max = left;
   }
 
-  if (right < array_length && input[right] > input[max])     {
+  if (right < array.length && array[right] > array[max])     {
     max = right;
   }
 
   if (max != i) {
-    swap(input, i, max);
-    heap_root(input, max);
+    swap(array, i, max);
+    heapRoot(array, max);
   }
 }
 
-function swap(input, index_A, index_B) {
-  let temp = input[index_A];
+function swap(array, index_A, index_B) {
+  let temp = array[index_A];
 
-  input[index_A] = input[index_B];
-  input[index_B] = temp;
+  array[index_A] = array[index_B];
+  array[index_B] = temp;
 }
 
-function heapSort(input) {
-  let array_length = input.length;
+function heapSort(array) {
+  let array_length = array.length;
   for (let i = Math.floor(array_length / 2); i >= 0; i -= 1) {
-    heap_root(input, i);
+    heap_root(array, i);
   }
 
-  for (i = input.length - 1; i > 0; i--) {
-    swap(input, 0, i);
+  for (i = array.length - 1; i > 0; i--) {
+    swap(array, 0, i);
     array_length--;
-    heap_root(input, 0);
+    heap_root(array, 0);
   }
 }`,
-quickSort: `function quick_Sort(origArray) {
+quickSort: `function quickSort(origArray) {
   if (origArray.length <= 1) { 
     return origArray;
   } else {
@@ -133,7 +132,7 @@ quickSort: `function quick_Sort(origArray) {
       }
     }
 
-    return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
+    return newArray.concat(quickSort(left), pivot, quickSort(right));
   }
 }`,
 radixSort: `function radixSort(array, maxDigitSymbols) {
@@ -204,25 +203,41 @@ linearSearch: `function linearSearch(array, toFind){
   }
   return -1;
 }`,
-bogoSort: `shuffle = function(v) {
-  for(let j, x, i = v.length; i; j = Math.floor(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
-  return v;
-};
+bogoSort: `function Bogosort(arr){
+  var isSorted = function(arr){
+      for(var i = 1; i < arr.length; i++){
+          if (arr[i-1] > arr[i]) {
+              return false;
+          }
+      }
+      return true;
+  };
 
-isSorted = function(v){
-  for(let i=1; i<v.length; i++) {
-    if (v[i-1] > v[i]) { return false; }
-  }
-  return true;
-}
+  function shuffle(arr){
+      var count = arr.length, temp, index;
 
-bogosort = function(v){
-  let sorted = false;
-  while(sorted == false){
-    v = shuffle(v);
-    sorted = isSorted(v);
+      while(count > 0){
+          index = Math.floor(Math.random() * count);
+          count--;
+
+          temp = arr[count];
+          arr[count] = arr[index];
+          arr[index] = temp;
+      }
+
+      return arr;
   }
-  return v;
+
+ function sort(arr){
+      var sorted = false;
+      while(!sorted){
+          arr = shuffle(arr);
+          sorted = isSorted(arr);
+      }
+      return arr;
+  }
+
+  return sort(arr);
 }`,
   }
 

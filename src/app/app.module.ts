@@ -10,6 +10,8 @@ import { MethodsService } from './services/methods.service';
 import { CodeMethodsService } from './services/code-methods.service';
 import { SofisticatedMethodComponent } from './sofisticated-method/sofisticated-method.component';
 import { SearchMethodComponent } from './search-method/search-method.component';
+import { SortComponent } from './sort/sort.component';
+import { NgbModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,10 +20,13 @@ import { SearchMethodComponent } from './search-method/search-method.component';
     SimpleMethodComponent,
     NavbarComponent,
     SofisticatedMethodComponent,
-    SearchMethodComponent
+    SearchMethodComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
+    NgbAlertModule,
     AppRoutingModule
   ],
   providers: [

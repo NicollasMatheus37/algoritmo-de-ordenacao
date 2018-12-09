@@ -13,19 +13,15 @@ export class SimpleMethodComponent implements OnInit {
   public simpleMethods = [];
   public selector;
   public simpleMethod = 'simpleMethod';
+  public array: String = "";
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private methodsService: MethodsService) {
     this.simpleMethods = methodsService.simpleMethods;
     this.activatedRoute.params.subscribe((response) => {
-      this.findRoute();
+      console.log(response);
+      this.find(response['url']);
       this.getCodeOf(this.selector)
     })
-  }
-
-  findRoute() {
-    let path = window.location.pathname;
-    let _path = path.split("/");
-    this.find(_path[2]);
   }
 
   find(url) {
