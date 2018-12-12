@@ -9,8 +9,12 @@
   </div>
   <div class="modal-body">
     <div class="container">
-      <div class="form-group">
-        <label for="">Digite os números do array separados por vírgulas <small>(Somente números e vírgulas)</small>.</label>
+        <div id="allValues" class="form-group">
+          <label for="">Digite os valores do array separados por vírgulas</label>
+          <input type="text" class="form-control input" name="array" [(ngModel)]="array">
+        </div>
+      <div id="onlyNumbers" class="form-group">
+        <label for="">Digite os números do array separados por vírgulas <small>(Somente números e vírgulas)</small></label>
         <input type="text" class="form-control input" name="array" [(ngModel)]="array" (keypress)="onlyNumbers($event)">
       </div>
       <p *ngIf="dangerAlert">
