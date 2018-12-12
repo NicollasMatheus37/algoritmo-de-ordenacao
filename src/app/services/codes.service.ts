@@ -8,6 +8,22 @@ export class CodesService {
 
   constructor(private auxiliarService: AuxiliarService) {}
 
+  chooseCode(type, array) {
+    console.log(type);
+    if(type == this.insertionSort) this.insertionSort(array);
+    if(type == this.selectionSort) this.selectionSort(array);
+    if(type == this.bubbleSort) this.bubbleSort(array);
+    if(type == this.combSort) this.combSort(array);
+    if(type == this.mergeSort) this.mergeSort(array);
+    if(type == this.heapSort) this.heapSort(array);
+    if(type == this.quickSort) this.quickSort(array);
+    if(type == this.timSort) this.timSort(array);
+    if(type == this.countingSort) this.countingSort(array);
+    if(type == this.binarySearch) this.binarySearch(array);
+    if(type == this.linearSearch) this.linearSearch(array);
+    if(type == this.bogoSort) this.bogoSort(array);
+  }
+
   insertionSort(array) {
     for(let i = 1, j; i < array.length; i++) {
       let temp = array[i];
@@ -61,7 +77,11 @@ export class CodesService {
     return array;
   }
 
-  mergeSort(left_part, right_part) {
+  mergeSort(array) {
+    let left_part, right_part
+    right_part = array['right_part'];
+    left_part = array['left_part'];
+
     let i = 0;
     let j = 0;
     let results = [];
@@ -119,7 +139,11 @@ export class CodesService {
     }
   }
 
-  radixSort(array, maxDigitSymbols) {
+  radixSort(getarray) {
+    let array, maxDigitSymbols;
+    array = getarray['array'];
+    maxDigitSymbols = getarray['maxDigits'];
+
     let counter = [[]];
     let mod = 10;
     let dev = 1;
@@ -148,7 +172,12 @@ export class CodesService {
     array.sort();
   }
 
-  countingSort(arr, min, max) {
+  countingSort(array) {
+    let arr, min, max;
+    arr = array['arr'];
+    min = array['min'];
+    max = array['max'];
+
     let i, z = 0, count = [];
 
     for (i = min; i <= max; i++) {
@@ -167,7 +196,11 @@ export class CodesService {
   return arr;
   }
 
-  binarySearch(arr, target) {
+  binarySearch(array) {
+    let arr, target;
+    arr = array['arr'];
+    target = array['target'];
+
     let left = 0;
     let right = arr.length - 1;
     while (left <= right) {
@@ -184,14 +217,18 @@ export class CodesService {
     return -1;
   }
 
-  linearSearch(array, toFind){
+  linearSearch(arr){
+    let array, toFind;
+    array = arr['array'];
+    toFind = arr['array'];
+
     for(let i = 0; i < array.length; i++){
       if(array[i] === toFind) return i;
     }
     return -1;
   }
 
-  sort(arr){
+  bogoSort(arr){
     var sorted = false;
     while(!sorted){
         arr = this.auxiliarService.shuffle(arr);

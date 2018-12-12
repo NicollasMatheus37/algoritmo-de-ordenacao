@@ -1,23 +1,4 @@
-<!-- <div class="container with-title">
-  <h2 class="title">Ordenação</h2>
-  <div class="form-group">
-    <label>Digite os números do array separados por vírgulas <small>(Somente números e vírgulas)</small>.</label>
-    <input type="text" class="form-control input" name="array" [value]="array">
-  </div>
-  <div class="row">
-    <div class="col-10">
-      <div class="form-group">
-        <select class="form-control input" name="typeOfSort" placeholder="Escolha o tipo de Ordenação">
-          <option disabled><b>Escolha o tipo de Ordenação</b></option>
-          <option *ngFor="let method of methods" [value]="method.selector"><small>{{method.name}}</small></option>
-        </select>
-      </div>
-    </div>
-    <div class="col"> -->
-      <button class="btn" (click)="openModal()">Ordenar</button>
-    <!-- </div>
-  </div>
-</div> -->
+<button class="btn" (click)="openModal()">Ordenar</button>
 
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
@@ -30,11 +11,14 @@
     <div class="container">
       <div class="form-group">
         <label for="">Digite os números do array separados por vírgulas <small>(Somente números e vírgulas)</small>.</label>
-        <input type="text" class="form-control input" name="array" [value]="array" (keypress)="getValue($event)">
+        <input type="text" class="form-control input" name="array" [(ngModel)]="array" (keypress)="onlyNumbers($event)">
       </div>
+      <p *ngIf="dangerAlert">
+          <ngb-alert [dismissible]="false">Digite valores para serem ordenados.</ngb-alert>
+      </p>
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn-success">Ordenar</button>
+    <button class="btn-success" (click)="verifyField()">Ordenar</button>
   </div>
 </ng-template>

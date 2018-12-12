@@ -27,3 +27,22 @@
 .method-div {
     margin-bottom: 10px;
 }
+
+.font-bigger {
+    font-size: 32px;
+}
+
+.margin30 {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.btn-back {
+    cursor: pointer;
+}
+
+.blankspace {
+    opacity: 0;
+    width: 100%;
+    background-color: black;
+}

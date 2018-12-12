@@ -6,8 +6,7 @@
     <button (click)="selector == method.selector ? selector = '' : selector = method.selector" (click)="getCodeOf(method.selector)" class="btn-clear col text-left"><i [className]="selector == method.selector ? 'fa fa-chevron-down' : 'fa fa-chevron-right'"></i> {{method.name}}</button>
     <div class="container" *ngIf="selector == method.selector">
       <pre>{{method.code}}</pre>
+      <app-sort></app-sort>
     </div>
   </div>
 </div>
-
-<app-sort></app-sort>

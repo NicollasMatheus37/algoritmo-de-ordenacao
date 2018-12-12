@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  public btnBack: boolean = true;
+
+  constructor(private router: Router) {
+    if(this.getUrl() == "/") {
+      this.btnBack = false;
+    }
+  }
+
+  getUrl() {
+    let url = window.location.pathname;
+    return url;
+  }
 
   ngOnInit() {
   }

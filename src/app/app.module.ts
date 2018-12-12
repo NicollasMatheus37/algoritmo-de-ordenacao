@@ -12,6 +12,7 @@ import { SofisticatedMethodComponent } from './sofisticated-method/sofisticated-
 import { SearchMethodComponent } from './search-method/search-method.component';
 import { SortComponent } from './sort/sort.component';
 import { NgbModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NgbModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     NgbModule,
     NgbAlertModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [

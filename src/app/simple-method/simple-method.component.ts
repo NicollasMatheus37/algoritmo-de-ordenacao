@@ -18,7 +18,6 @@ export class SimpleMethodComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private methodsService: MethodsService) {
     this.simpleMethods = methodsService.simpleMethods;
     this.activatedRoute.params.subscribe((response) => {
-      console.log(response);
       this.find(response['url']);
       this.getCodeOf(this.selector)
     })

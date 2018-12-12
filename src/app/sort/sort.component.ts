@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MethodsService } from '../services/methods.service';
-import { NgbModal, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbAlertModule, NgbPopover } from '@ng-bootstrap/ng-bootstrap';
+import { CodesService } from '../services/codes.service';
 
 @Component({
   selector: 'app-sort',
@@ -14,13 +15,16 @@ export class SortComponent implements OnInit {
 
   public methods = [];
   public array: String = "";
+  public url;
 
-  constructor(private methodsService: MethodsService, private modalService: NgbModal, alertModule: NgbAlertModule) {
+  public dangerAlert: boolean = false;
+
+  constructor(private methodsService: MethodsService, private modalService: NgbModal, alertModule: NgbAlertModule, private codesService: CodesService) {
     this.getMethods();
   }
 
   openModal() {
-    this.modalSort = this.modalService.open(this.content, {centered: true});
+    this.modalSort = this.modalService.open(this.content, {centered: true, size: 'lg'});
   }
 
   closeModal() {
@@ -39,7 +43,7 @@ export class SortComponent implements OnInit {
     });
   }
 
-  getValue(event) {
+  onlyNumbers(event) {
     if(event.keyCode == 44) {
       return;
     }
@@ -47,9 +51,18 @@ export class SortComponent implements OnInit {
       event.preventDefault();
     }
   }
+
+  verifyField() {
+    this.dangerAlert = false;
+    if(!this.array) this.dangerAlert = true;
+    else this.sort();
+  }
   
-  sort(method, array) {
-    
+  sort() {
+    this.url = window.location.pathname;
+    let urlString = this.url.split('/');
+    this.url = urlString[2];
+    this.codesService.chooseCode(this.url, this.array);
   }
 
   ngOnInit() {
